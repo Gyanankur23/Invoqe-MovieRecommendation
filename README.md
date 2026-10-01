@@ -1,5 +1,8 @@
 # Task 4: AI-Powered Recommendation System - Movie Recommendations
 
+## Live Demo
+🚀 **Try the live application:** [https://invoqe-movierecommendation-bxxce5zjhxxkhtwcwonbdu.streamlit.app/](https://invoqe-movierecommendation-bxxce5zjhxxkhtwcwonbdu.streamlit.app/)
+
 ## Overview
 This project implements a movie recommendation system using collaborative filtering and content-based filtering techniques. It includes data generation, model training with cosine similarity, and an interactive Streamlit interface for personalized recommendations.
 

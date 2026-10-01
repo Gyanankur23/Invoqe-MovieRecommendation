@@ -109,7 +109,7 @@ if model_data is not None:
             
             if user_history:
                 history_df = pd.DataFrame(user_history)
-                st.dataframe(history_df[['title', 'genre', 'year', 'rating']])
+                st.dataframe(history_df[['title', 'genres', 'year', 'rating']])
             else:
                 st.info("No rating history found for this user.")
             
@@ -119,7 +119,7 @@ if model_data is not None:
             
             if recommendations:
                 recs_df = pd.DataFrame(recommendations)
-                st.dataframe(recs_df[['title', 'genre', 'year', 'predicted_rating']])
+                st.dataframe(recs_df[['title', 'genres', 'year', 'predicted_rating']])
                 
                 # Display as cards
                 st.subheader("Movie Cards")

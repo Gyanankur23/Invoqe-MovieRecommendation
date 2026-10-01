@@ -23,14 +23,16 @@ Built using machine learning and cosine similarity algorithms.
 """)
 
 # Load model
-@st.cache_resource
 def load_model():
     """Load the trained recommendation model or train if not found"""
     try:
         model_data = joblib.load('models/recommender_model.pkl')
+        # Check if model has year column
+        if 'year' not in model_data['movies_df'].columns:
+            raise ValueError("Model missing year column")
         return model_data
     except:
-        st.warning("Model not found. Preparing data and training model... This may take a moment.")
+        st.warning("Model not found or outdated. Preparing data and training model... This may take a moment.")
         try:
             # Create sample data directly
             import pandas as pd

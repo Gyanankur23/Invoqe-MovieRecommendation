@@ -144,7 +144,11 @@ class MovieRecommender:
         # If no predictions, fall back to popular movies
         if len(top_recommendations) == 0:
             print("No collaborative predictions found. Returning popular movies.")
-            return self.get_popular_movies(n_recommendations)
+            popular = self.get_popular_movies(n_recommendations)
+            # Convert popular movies to have predicted_rating field for consistency
+            for rec in popular:
+                rec['predicted_rating'] = rec.get('avg_rating', 0)
+            return popular
         
         # Get movie details
         recommendations = []

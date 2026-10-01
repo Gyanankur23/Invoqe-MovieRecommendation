@@ -164,7 +164,7 @@ if model_data is not None:
             
             if recommendations:
                 recs_df = pd.DataFrame(recommendations)
-                st.dataframe(recs_df[['title', 'genre', 'year', 'similarity']])
+                st.dataframe(recs_df[['title', 'genres', 'year', 'similarity']])
                 
                 # Display as cards
                 st.subheader("Movie Cards")
@@ -175,7 +175,7 @@ if model_data is not None:
                         st.markdown(f"""
                         <div style='padding: 15px; border-radius: 10px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; margin-bottom: 10px;'>
                             <h3>{rec['title']}</h3>
-                            <p><strong>Genre:</strong> {rec['genre']}</p>
+                            <p><strong>Genre:</strong> {rec['genres']}</p>
                             <p><strong>Year:</strong> {rec['year']}</p>
                             <p><strong>Similarity:</strong> {rec['similarity']:.2f}</p>
                         </div>
@@ -205,7 +205,7 @@ if model_data is not None:
             
             if recommendations:
                 recs_df = pd.DataFrame(recommendations)
-                st.dataframe(recs_df[['title', 'genres', 'year', 'avg_rating', 'rating_count']])
+                st.dataframe(recs_df[['title', 'genre', 'year', 'avg_rating', 'rating_count']])
                 
                 # Display as cards
                 st.subheader("Movie Cards")
@@ -216,7 +216,7 @@ if model_data is not None:
                         st.markdown(f"""
                         <div style='padding: 15px; border-radius: 10px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; margin-bottom: 10px;'>
                             <h3>{rec['title']}</h3>
-                            <p><strong>Genre:</strong> {rec['genre']}</p>
+                            <p><strong>Genre:</strong> {rec['genres']}</p>
                             <p><strong>Year:</strong> {rec['year']}</p>
                             <p><strong>Avg Rating:</strong> {rec['avg_rating']:.2f}/5</p>
                             <p><strong>Ratings:</strong> {rec['rating_count']}</p>

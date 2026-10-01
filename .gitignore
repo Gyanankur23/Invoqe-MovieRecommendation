@@ -12,6 +12,8 @@ env/
 *.h5
 *.csv
 *.zip
+# Allow plots/*.png
+!plots/*.png
 
 # IDE
 .vscode/

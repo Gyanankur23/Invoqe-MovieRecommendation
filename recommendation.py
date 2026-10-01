@@ -188,7 +188,7 @@ class MovieRecommender:
             recommendations.append({
                 'movie_id': movie_info['movie_id'],
                 'title': movie_info['title'],
-                'genre': genre,
+                'genres': genre,
                 'year': movie_info.get('year', 'Unknown'),
                 'similarity': similarity_scores[idx]
             })
@@ -221,7 +221,7 @@ class MovieRecommender:
                 recommendations.append({
                     'movie_id': row['movie_id'],
                     'title': movie_info['title'],
-                    'genre': genre,
+                    'genres': genre,
                     'year': movie_info.get('year', 'Unknown'),
                     'avg_rating': row['avg_rating'],
                     'rating_count': row['rating_count']

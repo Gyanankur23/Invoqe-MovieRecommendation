@@ -247,7 +247,7 @@ class MovieRecommender:
                 history.append({
                     'movie_id': row['movie_id'],
                     'title': movie_info['title'],
-                    'genre': genre,
+                    'genres': genre,
                     'year': movie_info.get('year', 'Unknown'),
                     'rating': row['rating']
                 })

@@ -39,7 +39,8 @@ def load_model():
             movies_data = {
                 'movieId': list(range(1, 51)),
                 'title': [f'Movie {i} ({2000+i})' for i in range(1, 51)],
-                'genres': ['Action|Drama' if i % 2 == 0 else 'Comedy|Romance' for i in range(1, 51)]
+                'genres': ['Action|Drama' if i % 2 == 0 else 'Comedy|Romance' for i in range(1, 51)],
+                'year': [2000+i for i in range(1, 51)]
             }
             
             ratings_data = []

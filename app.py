@@ -30,13 +30,18 @@ def load_model():
         model_data = joblib.load('models/recommender_model.pkl')
         return model_data
     except:
-        st.warning("Model not found. Training model now... This may take a moment.")
+        st.warning("Model not found. Preparing data and training model... This may take a moment.")
         try:
+            # First create data if it doesn't exist
+            from data.create_dataset import download_movielens
+            download_movielens()
+            
+            # Then train model
             from recommendation import train_model
             model_data = train_model()
             return model_data
         except Exception as e:
-            st.error(f"Error training model: {str(e)}")
+            st.error(f"Error preparing model: {str(e)}")
             return None
 
 model_data = load_model()

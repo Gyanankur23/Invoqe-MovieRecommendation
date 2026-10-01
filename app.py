@@ -33,13 +33,13 @@ def load_model():
         st.warning("Model not found. Preparing data and training model... This may take a moment.")
         try:
             # First create data if it doesn't exist
-            from data.create_dataset import download_movielens
+            from data.create_dataset import download_movielens_dataset
             try:
-                download_movielens()
+                download_movielens_dataset()
             except:
-                # If download fails, create synthetic data
-                from data.create_dataset import create_synthetic_data
-                create_synthetic_data()
+                # If download fails, create sample data
+                from data.create_dataset import create_sample_dataset
+                create_sample_dataset()
             
             # Then train model
             from recommendation import train_model

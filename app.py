@@ -130,7 +130,7 @@ if model_data is not None:
                         st.markdown(f"""
                         <div style='padding: 15px; border-radius: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-bottom: 10px;'>
                             <h3>{rec['title']}</h3>
-                            <p><strong>Genre:</strong> {rec['genre']}</p>
+                            <p><strong>Genre:</strong> {rec['genres']}</p>
                             <p><strong>Year:</strong> {rec['year']}</p>
                             <p><strong>Predicted Rating:</strong> {rec['predicted_rating']:.2f}/5</p>
                         </div>
@@ -205,7 +205,7 @@ if model_data is not None:
             
             if recommendations:
                 recs_df = pd.DataFrame(recommendations)
-                st.dataframe(recs_df[['title', 'genre', 'year', 'avg_rating', 'rating_count']])
+                st.dataframe(recs_df[['title', 'genres', 'year', 'avg_rating', 'rating_count']])
                 
                 # Display as cards
                 st.subheader("Movie Cards")
@@ -233,7 +233,7 @@ if model_data is not None:
     
     # Genre distribution
     st.sidebar.header("Genre Distribution")
-    genre_counts = movies_df['genre'].value_counts()
+    genre_counts = movies_df['genres'].value_counts()
     st.sidebar.bar_chart(genre_counts)
     
     # Instructions

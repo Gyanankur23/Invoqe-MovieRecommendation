@@ -34,7 +34,12 @@ def load_model():
         try:
             # First create data if it doesn't exist
             from data.create_dataset import download_movielens
-            download_movielens()
+            try:
+                download_movielens()
+            except:
+                # If download fails, create synthetic data
+                from data.create_dataset import create_synthetic_data
+                create_synthetic_data()
             
             # Then train model
             from recommendation import train_model

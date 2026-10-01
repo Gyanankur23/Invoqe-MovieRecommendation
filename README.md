@@ -67,6 +67,14 @@ streamlit run app.py
 ```
 The application will open in your browser at `http://localhost:8501`
 
+## Analysis Plots
+
+![Rating Distribution](plots/rating_distribution.png)
+
+![Genre Popularity](plots/genre_popularity.png)
+
+![Recommendation Accuracy](plots/recommendation_accuracy.png)
+
 ## Methodology
 
 ### Data Loading

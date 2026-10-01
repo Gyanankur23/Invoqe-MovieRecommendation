@@ -205,7 +205,7 @@ if model_data is not None:
             
             if recommendations:
                 recs_df = pd.DataFrame(recommendations)
-                st.dataframe(recs_df[['title', 'genre', 'year', 'avg_rating', 'rating_count']])
+                st.dataframe(recs_df[['title', 'genres', 'year', 'avg_rating', 'rating_count']])
                 
                 # Display as cards
                 st.subheader("Movie Cards")

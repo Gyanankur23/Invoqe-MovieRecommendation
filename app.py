@@ -25,13 +25,19 @@ Built using machine learning and cosine similarity algorithms.
 # Load model
 @st.cache_resource
 def load_model():
-    """Load the trained recommendation model"""
+    """Load the trained recommendation model or train if not found"""
     try:
         model_data = joblib.load('models/recommender_model.pkl')
         return model_data
     except:
-        st.error("Model not found. Please run recommendation.py first to train the model.")
-        return None
+        st.warning("Model not found. Training model now... This may take a moment.")
+        try:
+            from recommendation import train_model
+            model_data = train_model()
+            return model_data
+        except Exception as e:
+            st.error(f"Error training model: {str(e)}")
+            return None
 
 model_data = load_model()
 

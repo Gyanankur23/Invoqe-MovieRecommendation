@@ -307,7 +307,14 @@ def train_model():
     print("MODEL TRAINING COMPLETE")
     print("=" * 50)
     
-    return recommender
+    # Return model data
+    return {
+        'movies_df': recommender.movies_df,
+        'ratings_df': recommender.ratings_df,
+        'user_movie_matrix': recommender.user_movie_matrix,
+        'movie_similarity': recommender.movie_similarity,
+        'genre_similarity': recommender.genre_similarity
+    }
 
 def main():
     """Train and test the recommendation system"""

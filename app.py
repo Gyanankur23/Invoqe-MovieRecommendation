@@ -32,13 +32,30 @@ def load_model():
     except:
         st.warning("Model not found. Preparing data and training model... This may take a moment.")
         try:
-            # First create data if it doesn't exist
-            import data.create_dataset as dataset_module
-            try:
-                dataset_module.download_movielens_dataset()
-            except:
-                # If download fails, create sample data
-                dataset_module.create_sample_dataset()
+            # Create sample data directly
+            import pandas as pd
+            import os
+            
+            movies_data = {
+                'movieId': list(range(1, 51)),
+                'title': [f'Movie {i} ({2000+i})' for i in range(1, 51)],
+                'genres': ['Action|Drama' if i % 2 == 0 else 'Comedy|Romance' for i in range(1, 51)]
+            }
+            
+            ratings_data = []
+            for user_id in range(1, 21):
+                for movie_id in range(1, 51):
+                    if (user_id + movie_id) % 3 == 0:
+                        ratings_data.append({
+                            'userId': user_id,
+                            'movieId': movie_id,
+                            'rating': 3.0 + (user_id % 3),
+                            'timestamp': 1000000000 + user_id * 1000 + movie_id
+                        })
+            
+            os.makedirs('data', exist_ok=True)
+            pd.DataFrame(movies_data).to_csv('data/movies.csv', index=False)
+            pd.DataFrame(ratings_data).to_csv('data/ratings.csv', index=False)
             
             # Then train model
             from recommendation import train_model
